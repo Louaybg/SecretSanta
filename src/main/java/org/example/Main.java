@@ -3,14 +3,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.*;
 public class Main {
     private static final Logger LOGGER =  LoggerFactory.getLogger(Main.class);
-    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException, InterruptedException {
+    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException, InterruptedException, IOException {
         Random rand = new Random();
+        List <String> answeredList = new ArrayList<String>();
         Scanner friends = new Scanner(System.in);
         System.out.print("how many friends are going to participate :");
         String number = friends.nextLine();
@@ -33,6 +35,7 @@ public class Main {
                 name = name1;
 
             }
+            answeredList.add(name);
             System.out.print("give me your password :");
             Scanner pass = new Scanner(System.in);
             String password1 = pass.nextLine();
@@ -59,7 +62,7 @@ public class Main {
             }
             count++;
         }
-        for (int i = 0; i < n ; i++) {
+        while (!answeredList.isEmpty()) {
             Set<Participant> listOfPlayer = map.keySet();
             Scanner gifter=new Scanner(System.in);
             System.out.print("Enter your name: ");
@@ -83,6 +86,7 @@ public class Main {
                 if (passCheck(p, pass)) {
                     System.out.print("you will gift this person : ");
                     System.out.println(map.get(p).getName());
+                    answeredList.remove(name);
                     Thread.sleep(3000);
                     clearScreen();
                 }else{
@@ -136,4 +140,5 @@ public class Main {
             return false;
         }
     }
+
 }

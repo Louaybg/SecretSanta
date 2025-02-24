@@ -38,15 +38,6 @@ public class Participant {
     public void setGets(boolean gets) {
         this.gets = gets;
     }
-
-    public void setAnswered() {
-        this.answered = answered ;
-    }
-
-    public boolean getAnswered() {
-        return answered;
-    }
-
     @Override
     public String toString() {
         return "name {"+name+"}"+ " Hpassword=" + Hpassword  ;
