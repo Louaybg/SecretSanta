@@ -114,10 +114,7 @@ public class Main {
         return false;
     }
     public static boolean passCheck (Participant p , String passTry) {
-        if (Objects.equals(p.getHPassword(), passTry)){
-            return true;
-        }
-        return false;
+        return Objects.equals(p.getHPassword(), passTry);
     }
     public static String Hashing(String password) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] salt = new byte[1];
