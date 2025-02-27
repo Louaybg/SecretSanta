@@ -3,6 +3,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import java.io.Console;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -48,9 +49,9 @@ public class Main {
         }
         HashMap<Participant,Participant> map=new HashMap<>() ;
         int count=0;
+        List<Participant> listToEmpty1= new ArrayList<>(nameList) ;
         while (count<nameList.size()) {
             Participant nametoMatch=nameList.get(count);
-            List<Participant> listToEmpty1= new ArrayList<>(nameList) ;
             listToEmpty1.remove(nametoMatch);
             nametoMatch.setGives(true);
             Participant pickedName=listToEmpty1.get(rand.nextInt(listToEmpty1.size())) ;
