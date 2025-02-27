@@ -5,7 +5,6 @@ public class Participant {
     private String Hpassword ;
     private boolean gives = false ;
     private boolean gets = false ;
-    private boolean answered = false ;
 
     public  String getName(){
         return name ;
